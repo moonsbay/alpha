@@ -5,7 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>home.jsp</title>
+
+<link rel="icon" type="image/png" href="favicon.png"/>
 <link rel="stylesheet" href="/css/cube.css">
+
 <style type="text/css">
 /*
 nav{
@@ -140,7 +143,7 @@ window.onload = function(){
         <li class="sub-menu-item"><a target="content" href="/ani/fill">fill</a></li>
         <li class="sub-menu-item"><a target="content" href="/ani/cross">cross</a></li>
         <li class="sub-menu-item"><a target="content" href="/ani/race">race</a></li>
-        <li class="sub-menu-item"><a target="content" href="/ani/cube">cube</a></li>
+        <li class="sub-menu-item"><a target="content" href="./cube.jsp">cube</a></li>
      
       </ol>
     </li>
