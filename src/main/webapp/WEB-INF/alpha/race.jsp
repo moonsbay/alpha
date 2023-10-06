@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+
+
 <title>race.jsp</title>
 <style type="text/css">
 #surface{
@@ -221,17 +224,29 @@ function race(alpha){
 	}*/
  
 }
-window.onload = function(){
-	
-	startBtn.onclick = e =>{
-		fetch('/alpha/data').then(response => response.json())
-		.then(alpha => {
-			race(alpha);
-//			add_tr();
-		});
+
+// $(document).ready(function(){
+// 	startBtn.onclick = e =>{
+// 		fetch('/alpha/data').then(response => response.json())
+// 		.then(alpha => {
+// 			race(alpha);
+// //			add_tr();
+// 		});
 		
-	}
-}
+// 	}
+	
+});
+ window.onload = function(){
+	
+ 	startBtn.onclick = e =>{
+ 		fetch('/alpha/data').then(response => response.json())
+ 		.then(alpha => {
+ 			race(alpha);
+ //			add_tr();
+ 		});
+		
+ 	}
+ }
 
 </script>
 

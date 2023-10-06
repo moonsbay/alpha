@@ -49,7 +49,6 @@ li>div, li>a{
        width:150px;
        flex-shrink: 0;   /*하위메뉴로 메뉴의 폭이 유동적인 것을 막아줌 위와 동일 */
        background:orange;
-       
 	}
 	
 	.menu-item:hover > .sub-menu{
@@ -59,24 +58,27 @@ li>div, li>a{
 	}
 	
 	.menu-item:hover > .menu-title{
-	  text-shadow:10px 10px 5px red;
+	  text-shadow:5px 5px 5px red;
 	}
 	
-	.menu-item:last-child{
-	  margin-left:auto;
-	  margin-right:10px;
-	}
+ 	.menu-item:last-child{ 
+ 	  margin-left:auto; 
+ 	  margin-right:10px; 
+ 	} 
 	
 	.menu-title{
-	   padding:10px;
-	   font-size:15px;
+/* 	   height:50px; */
+	   padding:13px;
+	   font-size:20px;
+/* 	   border:1px solid red; */
+	   cursor: n-resize;
 	}
 	
 	.sub-menu{
 	   max-height:0px;
 	   overflow:hidden;
 	   list-style: none;
- 	   padding-left: 20px; 
+ 	   padding-left: 0px; 
 	}
 	
 	.sub-menu-item{
@@ -100,19 +102,14 @@ li>div, li>a{
 	   margin-top: 100px;
 	}
 </style>
-<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-
 <script type="text/javascript">
 function resize(){
 	let iframe = document.querySelector('iframe');
 	iframe.style.height = getComputedStyle(iframe.contentDocument.documentElement).height;
 }
-// window.onload = function(){
-// 	setInterval(resize, 100);
-// }
-$(document).ready(function(){
+window.onload = function(){
 	setInterval(resize, 100);
-});
+}
 </script>
 </head>
 <body>
@@ -148,8 +145,8 @@ $(document).ready(function(){
         <li class="sub-menu-item"><a target="content" href="/ani/fill">fill</a></li>
         <li class="sub-menu-item"><a target="content" href="/ani/cross">cross</a></li>
         <li class="sub-menu-item"><a target="content" href="/ani/race">race</a></li>
-        <li class="sub-menu-item"><a target="content" href="/cube.jsp">cube</a></li>
-        <li class="sub-menu-item"><a target="content" href="/placeholder.jsp">placeholder</a></li>
+        <li class="sub-menu-item"><a target="content" href="cube.jsp">cube</a></li>
+     
       </ol>
     </li>
     <li class="menu-item">

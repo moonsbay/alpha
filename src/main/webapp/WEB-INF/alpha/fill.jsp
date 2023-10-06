@@ -134,17 +134,17 @@ function clearBtn_click(e){
 </table>
 <hr>
 <table id="surface2">
-<tbody>
-  <c:forEach var="i" begin="0" end="19">
-    <tr>
-    <c:forEach var="j" begin="0" end="39">
-     <c:set var="alpha" value="${surface[i][j]}"/>
-      <td>${alpha.ch}</td>
-    </c:forEach>
-    </tr>
-  </c:forEach>
+<!-- <tbody> -->
+<%--   <c:forEach var="i" begin="0" end="19"> --%>
+<!--     <tr> -->
+<%--     <c:forEach var="j" begin="0" end="39"> --%>
+<%--      <c:set var="alpha" value="${surface[i][j]}"/> --%>
+<%--       <td>${alpha.ch}</td> --%>
+<%--     </c:forEach> --%>
+<!--     </tr> -->
+<%--   </c:forEach> --%>
 
-</tbody>
+<!-- </tbody> -->
 
 
 </table>

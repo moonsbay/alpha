@@ -20,7 +20,7 @@
   display:inline-block;
 /*   transform:rotateX(45deg);  */
   
-  animation: rotate 20s infinite linear;
+  animation: rotate 5s infinite linear;
   transform-style:preserve-3d; /* 3d를 위한 것 */
 }
 .base{
