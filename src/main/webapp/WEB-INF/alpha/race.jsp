@@ -61,7 +61,7 @@ function race(alpha){
     }*/
 //	console.log("race()..." + alpha);
 	
-	let cnt=0;
+//10월6일	 let cnt=0;
 	let speed = Math.random()*1000 + 10;
 	let direction = 0; // 0:right,  1:down, 2:left, 3:up
 
@@ -97,10 +97,10 @@ function race(alpha){
     
     tdCount.innerText = 0;
 
-    alphach.innerText = alpha.ch;
     
     
-	let ccount = 0;
+    
+//10월6일	 let ccount = 0;
 	
 	setTimeout(function move(){   //이름을 줄 수 있다
 //		   console.log(cnt++ + ", speed=" + speed)
@@ -132,8 +132,8 @@ function race(alpha){
 	       if(alpha.line == 1 && alpha.column==1){
 	    	   direction = 0;
 	    	   roundCount.innerText = ++roundCount.innerText;
-	    	   round.innerText = roundCount.innerText;
-	    	   alphach.innerText = alpha.ch;
+//10월6일	    	   round.innerText = roundCount.innerText;
+//10월6일	    	   alphach.innerText = alpha.ch;
 	    	   tdCount.innerText = ++tdCount.innerText;
 	       }else if(alpha.line == 1 && alpha.column==40)
 	    	   direction = 1;
@@ -141,7 +141,7 @@ function race(alpha){
 	    	   direction = 2;
 	       else if(alpha.line == 20 && alpha.column==1)
 	    	   direction = 3;
-	           ccount = 1;
+//10월6일	           ccount = 1;
 	     
 //	       return roundCount.innerText;
 	       
@@ -236,6 +236,7 @@ function race(alpha){
 // 	}
 	
 });
+
  window.onload = function(){
 	
  	startBtn.onclick = e =>{
