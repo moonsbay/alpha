@@ -235,7 +235,7 @@ function race(alpha){
 		
 // 	}
 	
-});
+//});
 
  window.onload = function(){
 	
