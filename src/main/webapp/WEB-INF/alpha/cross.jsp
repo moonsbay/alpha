@@ -121,19 +121,19 @@ body{
   
   window.onload = () => {
 	  var cbox = document.getElementById("auto");
-	  if(cbox.checked == true){
-	  createBtn.onclick = () =>{
-		 for(;;){
-		 let cross = new Cross();
-		 cross.run();
-		 }
-	   }
-	 }else{
-	  createBtn.onclick = () =>{
-		 let cross = new Cross();
-		 cross.run();
-	 }
-  }
+	  createBtn.onclick= ()=>{
+	    	if(cbox.checked == true){
+	    	  var inf = setInterval(function(){
+	    		  let cross = new Cross();
+	    		  cross.run();
+	    		  if(cbox.checked == false)
+	    			  clearInterval(inf);
+	    	  }, 500)
+	    	}else{
+	    		let cross = new Cross();
+				cross.run();
+	    	}
+	     }
   }
 </script>
 </head>

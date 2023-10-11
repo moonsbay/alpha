@@ -106,13 +106,13 @@ li>div, li>a{
 function resize(){
 	let iframe = document.querySelector('iframe');
 	iframe.style.height = getComputedStyle(iframe.contentDocument.documentElement).height;
-}
+  }
 // window.onload = function(){
 // 	setInterval(resize, 100);
 // }
-$(document).ready(function(){
+  $(document).ready(function(){
 	setInterval(resize, 100);
-});
+   });
 </script>
 </head>
 <body>
