@@ -124,63 +124,63 @@
 	 conflictCheckMe(){
 		 
 		    
-		 if(this.alpha.line==1 && this.direction == Direction.TOP) {
+		 if(this.alpha.line==1 && this.direction == Direction.TOP && this.alpha.column != 1 && this.alpha.column !=40) {
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.TOP);
 		 }
 
-		 if((this.alpha.line==1 && this.alpha.column==1) && 
+		 else if((this.alpha.line==1 && this.alpha.column==1) && 
 		    (this.direction == Direction.TOP || this.direction == Direction.LEFT)){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.TOP || this.direction == Direction.LEFT);
 		 }
 
-		 if((this.alpha.line==1 && this.alpha.column==40) && 
+		 else if((this.alpha.line==1 && this.alpha.column==40) && 
 		    (this.direction == Direction.TOP || this.direction == Direction.RIGHT)){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.TOP || this.direction == Direction.RIGHT);
 		 }
 		 
-		 if(this.alpha.line==20 && this.direction == Direction.BOTTOM){
+		 else if(this.alpha.line==20 && this.direction == Direction.BOTTOM && this.alpha.column != 1 && this.alpha.column != 40){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.BOTTOM);
 		 }
 
-		 if((this.alpha.line==20 && this.alpha.column==40) && 
+		 else if((this.alpha.line==20 && this.alpha.column==40) && 
 		    (this.direction == Direction.BOTTOM || this.direction == Direction.RIGHT)){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.BOTTOM || this.direction == Direction.RIGHT);
 		 }
 		 
-		 if(this.alpha.column==1 && this.direction == Direction.LEFT){
+		 else if(this.alpha.column==1 && this.direction == Direction.LEFT && this.alpha.line != 1 && this.alpha.line !=20){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.LEFT);
 		 }
 
-		 if(this.alpha.column==40 && this.direction == Direction.RIGHT){
+		 else if(this.alpha.column==40 && this.direction == Direction.RIGHT && this.alpha.line != 1 && this.alpha.line !=20){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.RIGHT);
 		 }
 
-		 if((this.alpha.line==20 && this.alpha.column==1) && 
+		 else if((this.alpha.line==20 && this.alpha.column==1) && 
 		    (this.direction == Direction.BOTTOM || this.direction == Direction.LEFT)){
 		 do{
 			this.direction = Direction.values[parseInt(Math.random()*4)];
-		    this.step == 0; 
+//		    this.step == 0; 
 		 }while(this.direction == Direction.BOTTOM || this.direction == Direction.LEFT);
 		 }
 	 }
@@ -188,6 +188,7 @@
 	 move(){
 //		 var direction = (parseInt)(Math.random()*4); 여기다 변수 선언 이렇게 하고 direction을 케이스로 했더니 바로 바로 방향이 바뀌어 버림
 		 this.hide();
+		 this.conflictCheckMe();
 		 switch(this.direction){
 		   case Direction.TOP:
 	    	   this.alpha.line--;
@@ -204,9 +205,9 @@
 		 }
 		 
           
-		 this.conflictCheck();
-//		 this.conflictCheckMe();
-         if(this.step == 5){
+//		 this.conflictCheck();
+		 
+         if(this.step == 4){
 		    this.direction = Direction.values[parseInt(Math.random()*4)];
 		    this.step = 0;
 		    }
@@ -223,7 +224,7 @@
 		 let response = await fetch('/alpha/data');
 		 /**@type {Alpha} */
 		 this.alpha = await response.json();
-		 console.log(this.alpha);
+//		 console.log(this.alpha);
 		 this.show();
 		 for(;;){
 		   await sleep(this.speed);
