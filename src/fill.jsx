@@ -11,6 +11,32 @@ import "./css/fill.css"
 import sleep from "es7-sleep"
 
 
+class Fill extends Alpha{
+	left = 0;
+	top = 0;
+	zIndex = 0;
+	scale = 1;
+	constructor(){
+		super();
+        this.init();		
+	}
+	
+	init(){
+		this.left = parseInt(Math.random()*500+400);
+		this.top = 100;
+		this.zIndex = 0;     //zIndex가 높을 수로 화면 위로 나타남
+		this.scale = 3;
+	}
+	
+	clear(){
+		this.left = 0;
+		this.top = 0;
+		this.zIndex = 0;
+		this.scale = 1;
+	}
+	
+}
+
 class App extends React.Component{
 	
 	constructor(){
@@ -18,12 +44,14 @@ class App extends React.Component{
 		for(let i=0; i<20; i++){
 			this.state.surface[i] = [];
 			for(let j=0; j<40; j++){
-				let alpha = new Alpha();
-				alpha.fg = 'black';
-				alpha.bg = 'black';
+				let alpha = new Fill();
+//				let alpha = new Alpha();
+//				alpha.fg = 'black';
+//				alpha.bg = 'black';
 				this.state.surface[i][j]=alpha;
 			}
 		}
+		this.init();    //이것으로 위의 'black'부분 코맨트처리
 		console.log(this.state.surface);
 	}
 	
@@ -36,15 +64,19 @@ class App extends React.Component{
 	}
 	
 	async fill(){
+		let zIndex = 1;
 		for(;;){
 		this.state.forCount++;
-		let alpha = new Alpha();
+		let alpha = new Fill();
+//		let alpha = new Alpha();
 		let a = this.state.surface[alpha.line-1][alpha.column-1];
 		
 		if(a.fg == 'black' && a.bg == 'black'){
 		   this.state.count++;
+		   alpha.clear();
+		   alpha.zIndex = zIndex++;
+		   this.state.surface[alpha.line-1][alpha.column-1] = alpha;
 		}
-		this.state.surface[alpha.line-1][alpha.column-1] = alpha;
 		this.forceUpdate();
 		await sleep(1);
 		
@@ -69,19 +101,25 @@ class App extends React.Component{
 		}
 	}
 	
-	btnCreate_click(e){
-		this.state.disabled = true;
-		this.forceUpdate();
+	init(){
 		
 		for(let i=0; i<20; i++){
 			for(let j=0; j<40; j++){
 				this.state.surface[i][j].fg = 'black';
 				this.state.surface[i][j].bg = 'black';
+				this.state.surface[i][j].init();
 			}
 		}
 		this.state.forCount = 0;
 		this.state.count = 0;
+		
+	}
+	
+	btnCreate_click(e){
+		this.state.disabled = true;
 		this.forceUpdate();
+		
+		this.init();
 		
 		this.fill();
 		this.timer();
@@ -112,7 +150,7 @@ class App extends React.Component{
 			    </tr> 
 			  </tbody>
 			</table>
-			<table className="collapse" onMouseDown={event=>event.preventDefault()}
+			<table id="surface" className="collapse" onMouseDown={event=>event.preventDefault()}
 			                  onContextMenu={event=>event.preventDefault()}  >
 			  <tbody>
 			    {
@@ -120,7 +158,14 @@ class App extends React.Component{
 					  <tr key={k}>
 					     {
 							 row.map((v, k)=>
-							   <td style={{color:v.fg, background:v.bg}} key={k}>{v.ch}</td>
+							   <td style={{
+								   color:v.fg, 
+								   background:v.bg,
+								   zIndex: v.zIndex,
+								   transform:`scale(${v.scale})`,
+								   left:v.left,
+								   top:`${v.top}`,  //그냥 위에처럼 v.top해도 됨
+								   }} key={k}>{v.ch}</td>
 							 )
 						 }
 					  </tr>
