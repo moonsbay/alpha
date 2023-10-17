@@ -164,7 +164,7 @@ class App extends React.Component{
 								   zIndex: v.zIndex,
 								   transform:`scale(${v.scale})`,
 								   left:v.left,
-								   top:`${v.top}`,  //그냥 위에처럼 v.top해도 됨
+								   top:v.top,  
 								   }} key={k}>{v.ch}</td>
 							 )
 						 }
