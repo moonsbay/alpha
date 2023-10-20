@@ -151,7 +151,7 @@
 //			     }
 			     this.arrhide[3] = td;
 //			     console.log(arrhide[3]);
-			     this.wormslength = 4;
+			     this.wormslength = 3;
 			   break;
 		 }
 			
