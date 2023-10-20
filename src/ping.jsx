@@ -144,13 +144,7 @@ class App extends React.Component{
 			<button disabled={this.state.disabled} onClick={event=>this.btnStart_click(event)}>Start</button>
 			<button disabled={!this.state.disabled} onClick={event=>this.btnStop_click(event)}>Stop</button>
 			
-			<select onChange={event=>this.state.rowNum = event.target.value}>
-			  {
-				this.state.surface.map((row, i) =>
-				  <option key={i}>{i}</option>
-				)
-			  }
-			</select>
+			
 			<hr/>
 			<table id="surface" className="collapse" onMouseDown={event=>event.preventDefault()}
 			                  onContextMenu={event=>event.preventDefault()}  >
