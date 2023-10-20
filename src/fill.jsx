@@ -26,6 +26,7 @@ class Fill extends Alpha{
 		this.top = 100;
 		this.zIndex = 0;     //zIndex가 높을 수로 화면 위로 나타남
 		this.scale = 3;
+	
 	}
 	
 	clear(){
