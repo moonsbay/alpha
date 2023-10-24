@@ -46,15 +46,19 @@ function startBtn_click(e){ //button tag의 startBtn_click(event)의 event를 �
 		
 		forCount.innerText = ++forCount.innerText;  //자바스크립트는 문자열이지만 산술연산자 붙으면 숫자로 바꾼다 그리고 다시 문자열로 변경됨
 		if(count.innerText == 800){
+			
 			clearInterval(tid);
 			clearInterval(timer);
 			start.disabled = false;
 			clear.disabled = false;
+		
 			
 			Array.from(surface.rows).forEach(function(row) {
 				   Array.from(row.cells).forEach(function(td) {
+					   
 					    td.style.color = 'black';
 						td.style.left = '0px';
+						td.style.transform = `rotate(\${0*1}deg)`;
 					});
 				  });
 			
@@ -70,10 +74,13 @@ function startBtn_click(e){ //button tag의 startBtn_click(event)의 event를 �
 			let td = surface.rows[alpha.line-1].cells[alpha.column-1];
 			
 			if(td.style.color =='black' && td.style.background =='black'){
-				count.innerText = ++count.innerText;
+				
 //				setTimeout(() => td.style.left="700px",1); 
+               
  				td.style.left = "700px";
- 				td.style.transform = `rotate(\${360*10}deg)`;
+				td.style.transform = `rotate(\${360*10}deg)`;
+//  			td.style.transform = `rotate(3600deg)`;
+				count.innerText = ++count.innerText;
 			}
 			
 			td.style.color = alpha.fg;
@@ -104,6 +111,7 @@ function clearBtn_click(e){
 	   Array.from(row.cells).forEach(function(td) {
 		    td.style.color = 'black';
 			td.style.background = 'black';
+			
 		});
 	  });	
 		

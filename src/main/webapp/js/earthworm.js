@@ -117,7 +117,7 @@
 //			 switch(this.wormslength){
 			 case 4:
 //				 if(arrhide[0].style.color!='white'&& arrhide[0].style.background!='white'){
-	            
+//	             
 				 this.arrhide[0].style.color='white';
 			     this.arrhide[0].style.background='white';
 //			     console.log(arrhide[0]);

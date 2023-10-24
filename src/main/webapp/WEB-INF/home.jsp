@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,12 @@ li>div, li>a{
        width:150px;
        flex-shrink: 0;   /*하위메뉴로 메뉴의 폭이 유동적인 것을 막아줌 위와 동일 */
        background:orange;
-       
+	}
+	
+	.menu-title a{
+	  display:block;
+	  text-decoration: none;
+	  color:black;
 	}
 	
 	.menu-item:hover > .sub-menu{
@@ -62,9 +68,9 @@ li>div, li>a{
 	  text-shadow:10px 10px 5px red;
 	}
 	
-	.menu-item:last-child{
+	.menu-item:nth-last-child(2){
 	  margin-left:auto;
-	  margin-right:10px;
+	  margin-right:2px;
 	}
 	
 	.menu-title{
@@ -97,7 +103,7 @@ li>div, li>a{
 	}
 	
 	iframe{
-	   margin-top: 100px;
+	    margin-top: 100px;
 	}
 </style>
 <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
@@ -181,9 +187,31 @@ function resize(){
         <li class="sub-menu-item"><a target="content" href="/search">search</a></li>
       </ol>
     </li>
+   
+    <sec:authorize access="isAnonymous()">
     <li class="menu-item">
-      <div class="menu-title">Login</div>
+      <div class="menu-title">
+        <a href="/login">Login</a>
+      </div>
     </li>
+     <li class="menu-item">
+      <div class="menu-title">
+        <a href="/register">Register</a>
+      </div>
+    </li>
+    </sec:authorize>
+    <sec:authorize access="isAuthenticated()">
+    <li class="menu-item">
+      <div class="menu-title">
+        <a href="/logout">Logout</a>
+      </div>
+    </li>
+    <li class="menu-item">
+      <div class="menu-title">
+        <a href="#"><sec:authentication property="name"/></a>
+      </div>
+    </li>
+    </sec:authorize>
   </ul>
 </nav>
 
