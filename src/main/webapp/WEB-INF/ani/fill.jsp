@@ -46,7 +46,7 @@ function startBtn_click(e){ //button tag의 startBtn_click(event)의 event를 �
 		
 		forCount.innerText = ++forCount.innerText;  //자바스크립트는 문자열이지만 산술연산자 붙으면 숫자로 바꾼다 그리고 다시 문자열로 변경됨
 		if(count.innerText == 800){
-			
+			setTimeout(function() {
 			clearInterval(tid);
 			clearInterval(timer);
 			start.disabled = false;
@@ -63,6 +63,7 @@ function startBtn_click(e){ //button tag의 startBtn_click(event)의 event를 �
 				  });
 			
 			return; //return없애려면 if문을 setInterval 마지막에 두면 된다
+			}, 5000);
 		}
 		let xhr = new XMLHttpRequest();
 		xhr.open('GET', '/ani/data');
