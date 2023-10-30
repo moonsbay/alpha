@@ -27,10 +27,18 @@ public class RestDeptController {
 	@Autowired
 	DeptMapper mapper;
 	
+	@GetMapping(headers = {"Accept=text/html"})  // GetMapping을 두개 사용 가능하도록 헤더조건추가..@ResponseBody 가 없으므로 view로 리저브 됨
+	void view() {                                
+	
+		
+	}
+	
+	
+	
 	@GetMapping
 	@ResponseBody     //이게 있어야 view로 리저브되지 않고 바로 json문자열형태로 바로리턴해준다  
 //	List<Dept> get(){
-    ResponseEntity<Object> get(){
+    ResponseEntity<Object> get(){            //get()이런게 Rest API
 		System.out.println("get()...");
 		var list = mapper.selectAll();
 		var body = new HashMap<String, Object>();
