@@ -28,24 +28,10 @@ div{
    border : 5px solic black;
    height : 20px;
    width  : 20px;
-   transition:left 2s, top 2s, transform 4s;
-}
-#surface{
-  border-collapse: collapse;
-  font-family: monospace;
-  font-size: 150%;
-  
-  border: 20px outset red;  /*outset, inset*/
+/*    transition: top 4s; */
+   transition:left 4s, top 4s, bottom 4s, transform 4s;
 }
 
-#surface td{
-  opacity: 0.2;
-  position:relative;
-     
-  top:0px;
-  left:0px;
-  transition:left 2s, top 2s, transform 4s;
-}
 
 </style>
 <script type="text/javascript">
@@ -55,24 +41,37 @@ function sleep(millis){
 	  		setTimeout(resolve, millis);
 	  });
   }
+
   
   class Cross{
-	  	  
+	 	  
 	  constructor(){
 		this.direction = parseInt(Math.random()*4);
-// 		this.speed = Math.random()*300 + 10;
+		this.speed = Math.random()*300 + 10;
 	  }
+	  
 	  show(){
-
-	  }
-	  hide(){
-		 
-	  }
-	  move(){
 		  let div = document.createElement("div");
 		  div.setAttribute("class", "front");
 		  document.querySelector("#body").append(div);
-// 		  div.style.left = "380px";
+	  }	
+	  
+	  hide(){
+		  
+	  }
+	  move(){
+	 
+// 		  let div = document.createElement("div");
+// 		  this.div.setAttribute("class", "front");
+// 		  document.querySelector("#body").append(div);
+		  let div = document.querySelector(".front");
+// 		  div.style.left = "380px";      //right
+//        div.style.left = "0px";        //left
+// 		  div.style.top = "-30px";       //bottom
+// 		  div.style.top = "-410px";      //top
+// 		  div.style.bottom = "30px";      //bottom
+// 		  div.style.bottom = "410px";      //top
+          console.log(this.direction);
 // 		  div.className = 'front';
 // 		  let text = this.documment.createTextNode('Front');
 // 		  div.appendChild(text);
@@ -85,40 +84,56 @@ function sleep(millis){
 // 			   div.style.left = "380px";
 // 	    	   break;
 // 	       case 1:
-// 	    	   div.style.top = "380px";
+// 	    	   div.style.bottom = "410px";
 // 	    	   break;
 // 	       case 2:
 // 	    	   div.style.left = "0px";
 // 	    	   break;
 // 	       case 3:
-// 	    	   div.style.top = "0px";
+// 	    	   div.style.bottom = "30px";
 // 	    	   break;
 // 		  }
-		  
+// 		  return true;
 
 	  }
 	 
 	  async run(){
-		  let response = await fetch('/ani/data');  //let이 없으면 전역변수.. 전역변수는 가능하면 사용지양..
-			  this.move();
-//			  await sleep(1000);
+// 		  let response = await fetch('/ani/data');  //let이 없으면 전역변수.. 전역변수는 가능하면 사용지양..
+// 		  let div = document.createElement("div");
+// 		  div.setAttribute("class", "front");
+// 		  document.querySelector("#body").append(div);
+// 		  this.show();
+		  this.move();
+// 		  div.style.left = "380px";
+//		  await sleep(1000);
 	  }
 	  
   }
   
   window.onload = () => {
 	  var cbox = document.getElementById("auto");
+	  
 	  createBtn.onclick= ()=>{
 	    	if(cbox.checked == true){
-	    	  var inf = setInterval(function(){
+// 	    	  let div = document.createElement("div");
+// 	  		  div.setAttribute("class", "front");
+// 	  		  document.querySelector("#body").append(div);
+// 	  		  div.style.left = "380px";
+// 	    	  var inf = setInterval(function(){
 	    		  let cross = new Cross();
-	    		  cross.run();
-	    		  if(cbox.checked == false)
-	    			  clearInterval(inf);
-	    	  }, 500)
+	    		  cross.show();
+// 	    		  cross.run();
+// 	    		  if(cbox.checked == false)
+// 	    			  clearInterval(inf);
+// 	    	  }, 500)
 	    	}else{
-	    		let cross = new Cross();
-				cross.run();
+	    		let div = document.createElement("div");
+	 	  		  div.setAttribute("class", "front");
+	 	  		  document.querySelector("#body").append(div);
+	 	  		  div.style.left = "380px";
+// 	    		 let cross = new Cross();
+// 	    		 cross.show();
+// 	    		 cross.run();
 // 				this.div.style.left = "380px";
 	    	}
 	     }
@@ -133,6 +148,7 @@ function sleep(millis){
 <input id="auto" type="checkbox" name="auto">
 <label for="auto">Auto</label>
 <hr>
+
 <div class="back">cross</div>
 <!-- <div class="front">F</div> -->
 </body>

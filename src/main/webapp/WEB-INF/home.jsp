@@ -175,7 +175,7 @@ function resize(){
       <ol class="sub-menu">
         <li class="sub-menu-item"><a target="content" href="/dept/list">dept</a></li>
         <li class="sub-menu-item"><a target="content" href="/emp/list">emp</a></li>
-        <li class="sub-menu-item"><a target="content" href="/salgrade/list">salgrade</a></li>
+<!--         <li class="sub-menu-item"><a target="content" href="/salgrade/list">salgrade</a></li> -->
     
       </ol>
     </li>
@@ -184,8 +184,8 @@ function resize(){
       <ol class="sub-menu">
         <li class="sub-menu-item"><a target="content" href="/city/list">city</a></li>
         <li class="sub-menu-item"><a target="content" href="/country/list">country</a></li>
-        <li class="sub-menu-item"><a target="content" href="/language/list">language</a></li>
-        <li class="sub-menu-item"><a target="content" href="/search">search</a></li>
+<!--         <li class="sub-menu-item"><a target="content" href="/language/list">language</a></li> -->
+<!--         <li class="sub-menu-item"><a target="content" href="/search">search</a></li> -->
       </ol>
     </li>
    
