@@ -39,17 +39,17 @@ public class AniController {
 	void race(Model model) {
 //		ArrayList<ArrayList<Alpha>> alphas = new ArrayList<ArrayList<Alpha>>(); 
 //      밑의 문장과 같은것 var쓰면 new뒤에 형식이 있으므로 알아서 인식 ArrayList를 이중으로 쓴 것은 2차원배열을 표현하기위해..
-		var alphas = new ArrayList<ArrayList<Alpha>>();
-		for(var i=0; i<20; i++) {
-			alphas.add(new ArrayList<Alpha>());
-			for(var j=0; j<40; j++) {
-				alphas.get(i).add(new Alpha());
-				
-//				alphas.set(i).setFg(Color.Black);
-//				alphas[i][j].setBg(Color.Black);
-			}
-		}
-		model.addAttribute("surface", alphas); //view로 전달하기 위한 것. 모델을 이용
+//		var alphas = new ArrayList<ArrayList<Alpha>>();
+//		for(var i=0; i<20; i++) {
+//			alphas.add(new ArrayList<Alpha>());
+//			for(var j=0; j<40; j++) {
+//				alphas.get(i).add(new Alpha());
+//				
+////				alphas.set(i).setFg(Color.Black);
+////				alphas[i][j].setBg(Color.Black);
+//			}
+//		}
+//		model.addAttribute("surface", alphas); //view로 전달하기 위한 것. 모델을 이용
 	}
 	
 	@GetMapping("/cross")

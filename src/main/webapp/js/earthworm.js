@@ -41,9 +41,11 @@
 	ch 
  };
  
+
+ 
  class EarthWorm{
 	 
-	 
+	 zin = 1;
 	 constructor(){
 		 /** @type {HTMLTableElement} */
 		 this.surface = document.querySelector('#surface'); //도움말기능 위한 두줄.. 컨텐터넌스..?
@@ -52,6 +54,7 @@
 		 this.direction = Direction.values[parseInt(Math.random()*4)];
 		 this.step = 0;
 		 this.wormslength = 0;
+//		 var td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
 //		 this.td = this.alpha;
 ////         this.td = this.surface.querySelector('line');
 //         this.worms  = [];
@@ -72,9 +75,9 @@
 		 let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
 		 td.style.color = this.alpha.fg;
 		 td.style.background = this.alpha.bg;
-		 td.style.zIndex = 1
+		 td.style.zIndex = this.zin;
 		 td.innerText = this.alpha.ch;
-		 
+		 this.zin++;
 		 return td;
 	 }
 	 arr1 = [];
@@ -85,16 +88,15 @@
 	 hide(){
 		 console.log(this.alpha.line)
 //		 let arrhide = new Array(4);
-         let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
+//         let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
 //         let arrhide = [td, td, td, td]
 //         this.arr1[this.wormslength] = this.alpha.line
 //         console.log(this.arr1[0]);
-//		 let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
+		 let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
 		 
 		 switch(this.wormslength){
 			 case 0:
 				 this.arrhide[0] = td;
-				 
 				 
 			   break;
 			 case 1:
@@ -117,39 +119,57 @@
 //			 switch(this.wormslength){
 			 case 4:
 //				 if(arrhide[0].style.color!='white'&& arrhide[0].style.background!='white'){
-//	             
+	             console.log(this.arrhide[0].style.zIndex);
+			     console.log(td.style.zIndex);
+				 
+				 
 				 this.arrhide[0].style.color='white';
 			     this.arrhide[0].style.background='white';
-//			     console.log(arrhide[0]);
-//			     }
 			     this.arrhide[0] = td;
+			     
+//			     }
+                 
+			     
+			     
 //			     console.log(arrhide[0]);
 			   break;
 			 case 5:
 //				 if(arrhide[1].style.color!='white'&& arrhide[1].style.background!='white'){
+				 console.log(this.arrhide[1].style.zIndex);
+			     console.log(td.style.zIndex);
 				 this.arrhide[1].style.color='white';
 			     this.arrhide[1].style.background='white';
+			    
 //			     console.log(arrhide[1]);
 //			     }
 			     this.arrhide[1] = td;
+//			      console.log(td.style.zIndex);
 //			     console.log(arrhide[1]);
 			   break;
 			 case 6:
 //				 if(arrhide[2].style.color!='white'&& arrhide[2].style.background!='white'){
+				 console.log(this.arrhide[2].style.zIndex);
+			     console.log(td.style.zIndex);
 				 this.arrhide[2].style.color='white';
 			     this.arrhide[2].style.background='white';
+			     
 //			     console.log(arrhide[2]);
 //			     }
 			     this.arrhide[2] = td;
+//			      console.log(td.style.zIndex);
 //			     console.log(arrhide[2]);
 			   break;
 			 case 7:
 //				 if(arrhide[3].style.color!='white'&& arrhide[3].style.background!='white'){
+				 console.log(this.arrhide[3].style.zIndex);
+			     console.log(td.style.zIndex);
 				 this.arrhide[3].style.color='white';
 			     this.arrhide[3].style.background='white';
+			     
 //			     console.log(arrhide[3]);
 //			     }
 			     this.arrhide[3] = td;
+//			      console.log(td.style.zIndex);
 //			     console.log(arrhide[3]);
 			     this.wormslength = 3;
 			   break;

@@ -13,6 +13,7 @@ import $ from 'jquery';
 
 
 class Sort extends Alpha{
+	
 	left = 0;
 	top = 0;
 	scale =1;
