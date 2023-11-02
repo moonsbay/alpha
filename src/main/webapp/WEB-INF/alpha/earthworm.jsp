@@ -15,12 +15,16 @@
 <hr>
 <button id="btnCreate">Create</button>
 <hr>
-<table id="surface">
+<table id="surface" class="parents">
   <tbody>
     <c:forEach var="list" items="${surface}">
       <tr>
         <c:forEach var="alpha" items="${list}">
-          <td style="color:white; background:white">${alpha.ch}</td>
+          <td style="color:white; background:white">
+            <div style="color:white; background:white" id="div" class="child">
+              ${alpha.ch}
+            </div>
+          </td>
         </c:forEach>
       </tr>
     </c:forEach>

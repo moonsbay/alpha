@@ -45,10 +45,11 @@
  
  class EarthWorm{
 	 
-	 zin = 1;
+	 zin = 2;
 	 constructor(){
 		 /** @type {HTMLTableElement} */
 		 this.surface = document.querySelector('#surface'); //도움말기능 위한 두줄.. 컨텐터넌스..?
+		 this.div = document.querySelector(".parents .child");
 		 this.speed = Math.random()*200 + 10;
 //		 this.direction = parseInt(Math.random()*4);
 		 this.direction = Direction.values[parseInt(Math.random()*4)];
@@ -72,12 +73,33 @@
 //         
 //         arrline.push(this.alpha.line);
 //         arrcolumn.push(this.alpha.column);
+//         let div = document.querySelector(".child");
 		 let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
+//         div = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
+//         div.style.zIndex = 5;
+//         div.style.color = 'blue';
+//         div.style.background = 'blue';
+//         console.log(td);
+//         console.log(div);
+//         console.log(td.firstElementChild);
+         
+//		 td.style.zIndex = this.zin;
 		 td.style.color = this.alpha.fg;
 		 td.style.background = this.alpha.bg;
-		 td.style.zIndex = this.zin;
+		
+//		 console.log(this.zin);
 		 td.innerText = this.alpha.ch;
-		 this.zin++;
+		 
+//		 this.zin--;
+//		 console.log(this.zin);
+//		 return td;
+//		 let tdd = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
+////		 tdd.style.zIndex = this.zin;
+//		 tdd.style.color = 'red'; //this.alpha.fg;
+//		 tdd.style.background = 'red'; //this.alpha.bg;
+//		 
+//		 tdd.innerText = this.alpha.ch;
+	
 		 return td;
 	 }
 	 arr1 = [];
@@ -194,15 +216,15 @@
 //         this.hidestep++;
 //		 }
 	     
-	 async blink(){
-		 for(;;){
-		 this.show();
-		 await sleep(this.speed);
-		 this.hide();
-		 await sleep(this.speed);
-		 }
-		 
-	 }
+//	 async blink(){
+//		 for(;;){
+//		 this.show();
+//		 await sleep(this.speed);
+//		 this.hide();
+//		 await sleep(this.speed);
+//		 }
+//		 
+//	 }
 	 
 	 conflictCheck(){
 		 if(this.alpha.line==1 && this.alpha.column==0 ||
