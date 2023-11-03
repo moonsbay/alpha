@@ -13,16 +13,23 @@
      
      /** @type {HTMLButtonElement} */
      let btnCreate = document.querySelector('#btnCreate');
+     let btnClear = document.querySelector('#btnClear');
      btnCreate.onclick = async e => {
 		 
 		 let earthworm = new EarthWorm();
+		 earthworm.clear = 0;
 		 earthworm.run();
 //		 console.log("btnCreate...");
 //		 let response = await fetch('/alpha/data');
 //		 let alpha = await response.json();
 //		 console.log(alpha);
+//         btnClear.onclick = e => {
+//		     earthworm.clear = 1;
+//	     }
 		
 	 }
+	 
+	 
  }
  
 // let Alpha = {
@@ -44,7 +51,7 @@
 
  
  class EarthWorm{
-	 
+	 clear = 0;
 	 zin = 2;
 	 constructor(){
 		 /** @type {HTMLTableElement} */
@@ -64,7 +71,9 @@
          
 	 }
 	 
-
+//     clear(){
+//		 this.clear = 1;
+//	 }
 	    
 	 
 	 show(){
@@ -84,6 +93,7 @@
 //         console.log(td.firstElementChild);
          
 //		 td.style.zIndex = this.zin;
+		 
 		 td.style.color = this.alpha.fg;
 		 td.style.background = this.alpha.bg;
 		
@@ -114,23 +124,23 @@
 //         let arrhide = [td, td, td, td]
 //         this.arr1[this.wormslength] = this.alpha.line
 //         console.log(this.arr1[0]);
-		 let td = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
+		 let tdd = this.surface.rows[this.alpha.line-1].cells[this.alpha.column-1];
 		 
 		 switch(this.wormslength){
 			 case 0:
-				 this.arrhide[0] = td;
+				 this.arrhide[0] = tdd;
 				 
 			   break;
 			 case 1:
-				 this.arrhide[1] = td;
+				 this.arrhide[1] = tdd;
 				 
 			   break;
 			 case 2:
-				 this.arrhide[2] = td;
+				 this.arrhide[2] = tdd;
 				 
 			   break;
 			 case 3:
-				 this.arrhide[3] = td;
+				 this.arrhide[3] = tdd;
 				 
 			   break;
 //		 }
@@ -142,12 +152,12 @@
 			 case 4:
 //				 if(arrhide[0].style.color!='white'&& arrhide[0].style.background!='white'){
 	             console.log(this.arrhide[0].style.zIndex);
-			     console.log(td.style.zIndex);
+			     console.log(tdd.style.zIndex);
 				 
 				 
 				 this.arrhide[0].style.color='white';
 			     this.arrhide[0].style.background='white';
-			     this.arrhide[0] = td;
+			     this.arrhide[0] = tdd;
 			     
 //			     }
                  
@@ -158,39 +168,39 @@
 			 case 5:
 //				 if(arrhide[1].style.color!='white'&& arrhide[1].style.background!='white'){
 				 console.log(this.arrhide[1].style.zIndex);
-			     console.log(td.style.zIndex);
+			     console.log(tdd.style.zIndex);
 				 this.arrhide[1].style.color='white';
 			     this.arrhide[1].style.background='white';
 			    
 //			     console.log(arrhide[1]);
 //			     }
-			     this.arrhide[1] = td;
+			     this.arrhide[1] = tdd;
 //			      console.log(td.style.zIndex);
 //			     console.log(arrhide[1]);
 			   break;
 			 case 6:
 //				 if(arrhide[2].style.color!='white'&& arrhide[2].style.background!='white'){
 				 console.log(this.arrhide[2].style.zIndex);
-			     console.log(td.style.zIndex);
+			     console.log(tdd.style.zIndex);
 				 this.arrhide[2].style.color='white';
 			     this.arrhide[2].style.background='white';
 			     
 //			     console.log(arrhide[2]);
 //			     }
-			     this.arrhide[2] = td;
+			     this.arrhide[2] = tdd;
 //			      console.log(td.style.zIndex);
 //			     console.log(arrhide[2]);
 			   break;
 			 case 7:
 //				 if(arrhide[3].style.color!='white'&& arrhide[3].style.background!='white'){
 				 console.log(this.arrhide[3].style.zIndex);
-			     console.log(td.style.zIndex);
+			     console.log(tdd.style.zIndex);
 				 this.arrhide[3].style.color='white';
 			     this.arrhide[3].style.background='white';
 			     
 //			     console.log(arrhide[3]);
 //			     }
-			     this.arrhide[3] = td;
+			     this.arrhide[3] = tdd;
 //			      console.log(td.style.zIndex);
 //			     console.log(arrhide[3]);
 			     this.wormslength = 3;
@@ -342,7 +352,7 @@
 //   worms[this.wormslength] = tdd;
      
 
-async move(){
+     move(){
 //		 var direction = (parseInt)(Math.random()*4); 여기다 변수 선언 이렇게 하고 direction을 케이스로 했더니 바로 바로 방향이 바뀌어 버림
 		 
 //		 let arr = new Array();
@@ -395,6 +405,7 @@ async move(){
 //         var hidefunc = this.hide();
 //         var position;
 		 this.conflictCheckMe();
+		
 		 switch(this.direction){
 		   case Direction.TOP:
 	    	   this.alpha.line--;
@@ -412,7 +423,7 @@ async move(){
 	    	   this.alpha.column--;
 //	    	   let leftorigin = this.alpha.column++;
 	    	   break;
-		 }
+		  }
 		 
           
 //		 this.conflictCheck();
@@ -443,6 +454,8 @@ async move(){
 		 for(;;){
 		   await sleep(300);
 		   this.move();
+		   if(this.clear==1)
+		      break;
 		  }
 	 }
 	 

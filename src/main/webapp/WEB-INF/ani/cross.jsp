@@ -16,7 +16,7 @@ div{
    width : 400px;
 }
 .back{
-   opacity : 0.5;
+   opacity : 1;
    position : relative;
    border : 5px solid red;
    height : 400px;
@@ -27,7 +27,7 @@ div{
    position : absolute;
    top : 170px;
    left   : 190px;
-   border : 5px solic black;
+   border : 5px solid black;
    height : 20px;
    width  : 20px;
 /*    background-color: #00FF99; */
@@ -53,14 +53,14 @@ function sleep(millis){
 	  
 	  
 	  constructor(){
-		  
 		this.direction = parseInt(Math.random()*4);
  		this.color = parseInt((Math.random()*0xffffff));
 		this.bcolor = this.color.toString(16);
 // 		this.color = Color[parseInt(Math.random()*8)];
-		this.speed = Math.random()*300 + 10;
+// 		this.speed = Math.random()*300 + 10;
 		this.front = document.createElement("div");
-		this.back = document.querySelector(".back")
+		this.back = document.querySelector(".back");
+		
 	  }
 	  
 	  show(){
@@ -124,11 +124,11 @@ function sleep(millis){
 	    	   break;
 		  }
 		  
-		  return true;
+// 		  return true;
 		  
 	  }
 	  
-	  remove(){
+	  clear(){
 		  if(document.querySelector(".front").offsetLeft==375 ||
 		     document.querySelector(".front").offsetLeft==0 ||
 			 document.querySelector(".front").offsetTop==375 ||
@@ -171,7 +171,7 @@ function sleep(millis){
 	 	  			cross.move();
 	 	  		},2000);
 	 	  		setTimeout (function(){
-	 	  		cross.remove();
+	 	  		    cross.clear();
 	 	  		
 	 	  		if(cbox.checked == false)
 	    			  clearInterval(inf);
@@ -184,16 +184,16 @@ function sleep(millis){
 // 	 	  		  document.querySelector(".back").appendChild(front);   //  append(div);
 // 	 	  		  front.style.bottom = "-150px";
 	 	  		let cross = new Cross();
-	 	  		cross.show();
+	 	  		    cross.show();
 	 	  		
 	 	  		setTimeout (function(){
 	 	  			cross.move();
 // 	 	  			cross.front.style.left = "400px";
 	 	  		},2000);
 	 	  		setTimeout (function(){
-	 	  		console.log(document.querySelector(".front").offsetLeft);
-	 	  		console.log(document.querySelector(".front").offsetTop);
-	 	  		cross.remove();
+	 	  		    console.log(document.querySelector(".front").offsetLeft);
+	 	  		    console.log(document.querySelector(".front").offsetTop);
+	 	  		    cross.clear();
 // 	 	  		if(document.querySelector(".front").offsetLeft==400)
 // 	 	  			cross.front.remove();
 	 	  		    

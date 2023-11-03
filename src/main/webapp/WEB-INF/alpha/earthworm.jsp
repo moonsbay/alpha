@@ -14,6 +14,7 @@
 <h2>external javascript로 만들기(zigzag.js)</h2>
 <hr>
 <button id="btnCreate">Create</button>
+<!-- <button id="btnClear">Clear</button> -->
 <hr>
 <table id="surface" class="parents">
   <tbody>
